@@ -3,6 +3,6 @@ a = int(input("Введите число A:"))
 b = int(input("Введите число B:"))
 
 #Собираем чётные числа между A и B и выводим результат
-for i in range(a + 1, b):
+for i in range(a, b + 1):
     if i % 2 == 0:
         print(i, end=" ")
