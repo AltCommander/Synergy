@@ -2,33 +2,19 @@
 x = int(input("Введите натуральное число X: "))
 
 #Производим вычисления
-n2 = 0
-n3 = 0
-n5 = 0
-n7 = 0
-prime = False
+divisors_count = 1
+current_factor = 2
 
-while x != 1:
-    if x % 2 == 0:
-        x //= 2
-        n2 += 1
-    elif x % 3 == 0:
-        x //= 3
-        n3 += 1
-    elif x % 5 == 0:
-        x //= 5
-        n5 += 1
-    elif x % 7 == 0:
-        x //= 7
-        n7 += 1
-    else:
-        prime = True
-        break
+while x > 1:
+    power = 0
+    while x % current_factor == 0:
+        x //= current_factor
+        power += 1
+    
+    if power > 0:
+        divisors_count *= (power + 1)
 
-if not prime:
-    result = (n2 + 1)*(n3 + 1)*(n5 + 1)*(n7 + 1)
-else:
-    result = 2
+    current_factor += 1
 
 #Выводим результат
-print("У числа X", result, "натуральных делителей")
+print(f"У числа X {divisors_count} натуральных делителей")
